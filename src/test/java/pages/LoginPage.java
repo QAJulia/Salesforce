@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -18,6 +19,7 @@ public class LoginPage extends BasePage {
         return this;
     }
 
+    @Step("Открытие страницы входа")
     public LoginPage openPage() {
         driver.get("https://login.salesforce.com");
         isPageOpened();
@@ -31,6 +33,7 @@ public class LoginPage extends BasePage {
         return this;
     }
 
+    @Step("Ввод корректных данных для входа")
     public MainPage login(String username, String password){
         loginWithoutRedirect(username, password);
         return new MainPage(driver);

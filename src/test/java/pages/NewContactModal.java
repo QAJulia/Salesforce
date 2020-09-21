@@ -2,6 +2,7 @@ package pages;
 
 import elements.Input;
 import elements.Select;
+import io.qameta.allure.Step;
 import modals.Contact;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -27,6 +28,7 @@ public class NewContactModal extends BasePage{
         return this;
     }
 
+    @Step("Ввод корректных данных в поля формы создания контакта")
     public ContactsPage createContact(Contact contact) {
         new Select(driver, "Salutation").select(contact.getSalutation());
         new Input(driver, "First Name").write(contact.getFirstName());

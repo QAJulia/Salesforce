@@ -1,6 +1,7 @@
 package tests;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.opera.OperaDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -21,8 +22,10 @@ public class BaseTest{
 
     @BeforeMethod
     public void setUp(){
-        System.setProperty("webdriver.opera.driver", "src/test/resources/operadriver.exe");
-        driver = new OperaDriver();
+        //System.setProperty("webdriver.opera.driver", "src/test/resources/operadriver.exe");
+        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
+        //driver = new OperaDriver();
+        driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         loginPage = new LoginPage(driver);
